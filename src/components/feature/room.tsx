@@ -108,12 +108,6 @@ function Room() {
               </Button>
             )}
           </div>
-          <Button
-            className="p-1 px-2 bg-yellow-500 rounded-sm h-auto text-xs mt-1"
-            onClick={() => handleHint("hint word", 2)}
-          >
-            Hint
-          </Button>
         </div>
       </div>
       <div className="flex-1">
