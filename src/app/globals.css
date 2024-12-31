@@ -2,21 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -24,4 +10,145 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+    --team-one: 357.74 69.74% 29.8%;
+    --team-two: 196.36 97.91% 62.55%;
+    --team-neutral: 240 3.7% 15.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) hsl(var(--secondary) / 0.2);
+  scroll-behavior: smooth;
+}
+
+#chat-log {
+  font-size: 12px;
+}
+#chat-log li {
+  color: hsl(var(--muted-foreground));
+  padding-inline: 6px;
+  list-style-type: none;
+  padding-block: 3px;
+  border-bottom: 1px solid hsl(var(--border));
+  text-transform: lowercase;
+}
+
+/* #chat-log li[data-log-type="SPY"] {
+  background-color: hsl(var(--team-one) / 0.2);
+}
+
+#chat-log li[data-log-type="INFO"] {
+  font-style: italic;
+  background-color: hsl(var(--team-) / 0.2);
+} */
+
+.hint {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  background-color: hsl(var(--card));
+  color: hsl(var(--muted-foreground));
+}
+.hint .wait {
+  text-align: center;
+  color: hsl(var(--muted-foreground));
+}
+.hint .word {
+  font-weight: bold;
+  text-align: center;
+}
+
+.hint-form {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 0.3rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  background-color: hsl(var(--card));
+  color: hsl(var(--muted-foreground));
+}
+.hint-form .word-input {
+  flex: 1;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--muted-foreground) / 0.1);
+  padding-inline: 0.5rem;
+  font-size: small;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.hint-form .count-input {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+}
+.hint-form .count-input label {
+  display: block;
+  background-color: transparent;
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--muted-foreground) / 0.1);
+  padding-inline: 0.6rem;
+  color: white;
+  border-radius: 0.5rem;
+  font-family: var(--font-geist-sans);
+  padding-bottom: 0.2rem;
+  place-content: center;
+  cursor: pointer;
+}
+
+.hint-form .count-input input:focus + label,
+.hint-form .count-input input:focus-visible + label,
+.hint-form .count-input input:focus-within + label,
+.hint-form .count-input input:checked + label {
+  border-color: white;
+  background-color: white;
+  color: #000;
 }
