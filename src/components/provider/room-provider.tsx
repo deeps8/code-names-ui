@@ -40,7 +40,7 @@ export const RoomProvider: React.FC<RoomProviderType> = ({ children, roomid }) =
           `${protocol}//${url.host}/api/room/join?roomid=${cm.roomid}&playerid=${cm.id}&nickname=${cm.nickname}`
         );
 
-        ws.current.onopen = function (e) {
+        ws.current.onopen = function () {
           // ws.current?.send("Hello from client");
         };
 
@@ -51,7 +51,7 @@ export const RoomProvider: React.FC<RoomProviderType> = ({ children, roomid }) =
           }
         };
 
-        ws.current.onerror = function (e) {};
+        ws.current.onerror = function () {};
 
         ws.current.onmessage = function (e) {
           try {

@@ -6,7 +6,7 @@ import { Input } from "../ui/input";
 import { CreateNewRoom } from "@/actions/room";
 
 function CreateRoom() {
-  const [rm, setrm] = useState({ username: "", id: window.crypto.getRandomValues(new Uint32Array(1))[0].toString(16) });
+  const [rm, setrm] = useState({ username: "", id: "" });
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -19,7 +19,7 @@ function CreateRoom() {
      * 2. on success: redirect the user to roome/[roodId]
      * 3. on error: show error
      */
-    const payload = { nickname: rm.username, id: rm.id };
+    const payload = { nickname: rm.username, id: window.crypto.getRandomValues(new Uint32Array(1))[0].toString(16) };
     const res = await CreateNewRoom(payload);
     if (res === undefined) {
       // store the data

@@ -1,8 +1,5 @@
 "use client";
-import { CircleUser } from "lucide-react";
 import React, { useContext } from "react";
-import { PlayerList } from "./player-list";
-import { Button } from "../ui/button";
 import { RoomContext } from "../provider/room-provider";
 
 function RoomHeader() {
@@ -15,9 +12,9 @@ function RoomHeader() {
       <div>
         <h2 className="text-xl font-minecraft bg-white/5 px-3 py-1 rounded-sm">
           {data.turn === 66 ? (
-            <span className="text-team-two">Blue's</span>
+            <span className="text-team-two">Blue&apos;s</span>
           ) : (
-            <span className="text-team-one">Red's</span>
+            <span className="text-team-one">Red&apos;s</span>
           )}{" "}
           turn
         </h2>

@@ -12,13 +12,13 @@ type JoinRoomPropsType = {
 };
 
 function JoinRoom(data: JoinRoomPropsType) {
-  const [rm, setrm] = useState({ username: "", id: window.crypto.getRandomValues(new Uint32Array(1))[0].toString(16) });
+  const [rm, setrm] = useState({ username: "", id: "" });
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     e.stopPropagation();
     if (!rm.username) return;
 
-    const payload = { nickname: rm.username, id: rm.id };
+    const payload = { nickname: rm.username, id: window.crypto.getRandomValues(new Uint32Array(1))[0].toString(16) };
     localStorage.setItem("player", JSON.stringify(payload));
     data.handleJoinRoom({ ...payload, roomid: data.roomid });
     data.closeDialog();
